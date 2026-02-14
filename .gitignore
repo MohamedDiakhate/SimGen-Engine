@@ -1,0 +1,42 @@
+cat <<EOT >> .gitignore
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+simgen
+
+# Build Folders
+build/
+cmake-build-debug/
+.vscode/
+
+# OS Junk
+.DS_Store
+
+# Simulation Output
+simulation.json
+EOT
