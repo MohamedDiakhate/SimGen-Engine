@@ -17,13 +17,14 @@
 #include "nodes/spawners/box_spawner.h"
 #include "nodes/spawners/sphere_spawner.h"
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
     std::cout << "--- SimGen++ Engine Starting ---" << std::endl;
-    
+
     unsigned int master_seed = 12345;
 
-    if (argc > 1){
+    if (argc > 1)
+    {
         master_seed = std::stoi(argv[1]);
     }
     // 1. Initialize Core Systems
@@ -34,16 +35,15 @@ int main(int argc, char* argv[])
     scene.createFloor();
 
     // Commented out scene light due to gif throwing errors for RGB > 255
-    //scene.createLight();
+    // scene.createLight();
 
-   
     // Spawn 30 Spheres with radius 1
     SphereSpawnerNode sphere_spawner("sphere_spawner", 30, 2.0f);
-    sphere_spawner.execute(scene); 
+    sphere_spawner.execute(scene);
 
     // Spawn 8 boxes of scale 2
     BoxSpawnerNode box_spawner("box_spawner", 8, 2.0f);
-    box_spawner.execute(scene); // <--- Vital! Actually creates the boxes.
+    box_spawner.execute(scene);
 
     // --- CAMERA SETUP ---
     vec3 camPos(0, 12, 30);
@@ -53,7 +53,6 @@ int main(int argc, char* argv[])
     scene.cameraSettings.look_at = camTarget;
     scene.cameraSettings.vfov = 40.0f;
     scene.cameraSettings.aperture = 0.0f;
-
 
     // --- PIPELINE SETUP (The "Runtime" Phase) ---
 
@@ -75,9 +74,9 @@ int main(int argc, char* argv[])
     graph.addNode(Stage::Physics, physics);
 
     // 4. Camera Position Randomizer, tested but ignored to avoid random jumps
-     //graph.addNode(Stage::Randomize, std::make_shared<CamPosRandomizer>("Camera Pos Randomizer", 0));
-    
-     //  4. Ray Tracing
+    // graph.addNode(Stage::Randomize, std::make_shared<CamPosRandomizer>("Camera Pos Randomizer", 0));
+
+    //  4. Ray Tracing
     //  Render output filename
     auto renderer = std::make_shared<RayTraceNode>("Renderer", 2, 400, 225, 300, "init.ppm");
     graph.addNode(Stage::Render, renderer);
@@ -87,17 +86,11 @@ int main(int argc, char* argv[])
 
     std::cout << "--- STARTING ANIMATION RENDER ---" << std::endl;
 
-// 2. THE LOOP
-// 1. Setup
+    // This will now loop 40 times, run physics, AND render with correct filenames.
+    graph.run(scene, 40, master_seed);
 
 
-
-// 3. RUN
-// This will now loop 40 times, run physics, AND render with correct filenames.
-graph.run(scene, 40, master_seed);
-
-// 4. Save History
-graph.saveToFile("simulation.json");
+    graph.saveToFile("simulation.json");
 
     std::cout << "--- Simulation Finished ---" << std::endl;
     return 0;
