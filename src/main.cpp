@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
     graph.addNode(Stage::Physics, physics);
 
     // 4. Camera Position Randomizer, tested but ignored to avoid random jumps
-    // graph.addNode(Stage::Randomize, std::make_shared<CamPosRandomizer>("Camera Pos Randomizer", 0));
+    //graph.addNode(Stage::Randomize, std::make_shared<CamPosRandomizer>("Camera Pos Randomizer", 0));
 
     //  4. Ray Tracing
     //  Render output filename

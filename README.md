@@ -60,3 +60,33 @@ SimGen++/
 │   └── nodes/          # Node implementations
 ├── viewer.html         # WebGL Viewer for playback
 └── CMakeLists.txt      # Build configuration
+```
+---
+
+## 🛠️ Build & Run Instructions
+
+### Prerequisites
+Ensure you have the following installed before starting:
+* **C++17 Compiler** (GCC, Clang, or MSVC)
+* **CMake 3.10+**
+* **Python 3** (Optional, required for the Web Viewer)
+
+### 1. Build
+Create a build directory and compile the executable.
+
+```bash
+# Create and enter the build directory
+mkdir build && cd build
+
+# Configure the project with CMake
+cmake ..
+
+# Compile the executable
+make
+```
+### 2. Run
+```bash
+# Usage: ./simgen <SEED>
+# Example: Run with seed 12345 to generate trajectory data
+./simgen 12345
+```
