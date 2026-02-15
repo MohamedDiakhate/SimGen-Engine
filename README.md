@@ -90,3 +90,11 @@ make
 # Example: Run with seed 12345 to generate trajectory data
 ./simgen 12345
 ```
+
+### 3. Visualize
+
+```bash 
+# Run python script to out a GIF animation
+# as th scripts.py is not in the "build" folder
+python ../scripts/make_gif.py
+```
