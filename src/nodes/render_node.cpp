@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include <fstream>
+#include <memory>
 #include <limits>
 #include "fabric/scene_database.h"
 #include "nodes/render/rt_core/sphere.h"

@@ -15,6 +15,8 @@ struct CameraData{
     float aspect = 16.0f / 9.0f;
     float aperture = 0.0f;
     float focus_dist = 10.0f;
+    int width = 400;
+    int height = 200;
 };
 
 class Scene {
@@ -80,6 +82,10 @@ public:
     const std::vector<std::shared_ptr<Entity>>& getAllEntities() const {
         return entityList;
     }
+
+    const std::vector<vec3>& getRadianceBuffer() const {
+        return radiance_buffer;
+    }
   
 
     // SERIALIZATION
@@ -96,4 +102,5 @@ private:
     std::unordered_map<int, std::shared_ptr<Entity>> entityMap;
     std::vector<std::shared_ptr<Entity>> entityList;
     int nextCounter = 1;
+    std::vector<vec3> radiance_buffer;
 };

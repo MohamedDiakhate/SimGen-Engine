@@ -1,5 +1,6 @@
 #pragma once
 #include "core/node.h"
+#include <memory>
 #include <string>
 #include <vector>
 
@@ -23,4 +24,5 @@ public:
     RayTraceNode(std::string name, int priority, int w, int h, int ns, std::string outfile);
     
     void execute(Scene& scene) override;
+
 };

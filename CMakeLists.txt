@@ -67,5 +67,3 @@ else()
     message(WARNING "TBB not found — falling back to std::thread")
 endif()
 
-# Add this at the very end of CMakeLists.txt
-configure_file(${CMAKE_SOURCE_DIR}/build/viewer.html ${CMAKE_BINARY_DIR}/build/viewer.html COPYONLY)
