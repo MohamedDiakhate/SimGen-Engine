@@ -1,0 +1,15 @@
+/Users/mohameddiakhate/SimGenManager/bin/Debug/net10.0/SimGenManager
+/Users/mohameddiakhate/SimGenManager/bin/Debug/net10.0/SimGenManager.deps.json
+/Users/mohameddiakhate/SimGenManager/bin/Debug/net10.0/SimGenManager.runtimeconfig.json
+/Users/mohameddiakhate/SimGenManager/bin/Debug/net10.0/SimGenManager.dll
+/Users/mohameddiakhate/SimGenManager/bin/Debug/net10.0/SimGenManager.pdb
+/Users/mohameddiakhate/SimGenManager/obj/Debug/net10.0/SimGenManager.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mohameddiakhate/SimGenManager/obj/Debug/net10.0/SimGenManager.AssemblyInfoInputs.cache
+/Users/mohameddiakhate/SimGenManager/obj/Debug/net10.0/SimGenManager.AssemblyInfo.cs
+/Users/mohameddiakhate/SimGenManager/obj/Debug/net10.0/SimGenManager.csproj.CoreCompileInputs.cache
+/Users/mohameddiakhate/SimGenManager/obj/Debug/net10.0/SimGenManager.sourcelink.json
+/Users/mohameddiakhate/SimGenManager/obj/Debug/net10.0/SimGenManager.dll
+/Users/mohameddiakhate/SimGenManager/obj/Debug/net10.0/refint/SimGenManager.dll
+/Users/mohameddiakhate/SimGenManager/obj/Debug/net10.0/SimGenManager.pdb
+/Users/mohameddiakhate/SimGenManager/obj/Debug/net10.0/SimGenManager.genruntimeconfig.cache
+/Users/mohameddiakhate/SimGenManager/obj/Debug/net10.0/ref/SimGenManager.dll

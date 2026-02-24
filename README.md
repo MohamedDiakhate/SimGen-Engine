@@ -1,8 +1,10 @@
 # SimGen++ Physics Engine 🪐
 
-**A Deterministic, Node-Based Physics & Procedural Generation Engine in C++.**
+**A Deterministic, Node-Based Physics Engine (C++) orchestrated by a Command-Line Tooling Pipeline (C#) and containerized via Docker.**
 
 SimGen++ is a custom-built simulation engine designed to generate synthetic data for computer vision tasks and physics experimentation. It features a graph-based execution pipeline, rigid body physics, and a modular architecture for procedural generation.
+
+It features a multi-language architecture: a high-performance C++ backend for rigid body physics/ray-tracing, and a C# (.NET 8) frontend for JSON configuration and process orchestration.
 
 
 
@@ -28,6 +30,8 @@ The simulation logic is split into discrete stages: `Setup` -> `Randomize` -> `P
 ---
 
 ## 🧠 Design Decisions & Trade-offs
+### 🐳 Infrastructure: Docker & CI/CD
+To prevent "it works on my machine" issues, the engine is packaged using Docker. Furthermore, a Continuous Integration (CI) pipeline is configured via **GitHub Actions**. Every push to the repository automatically provisions a cloud runner, compiles the C++ source using CMake, and builds the Docker container to verify build integrity.
 
 ### 🧵 Threading Model: Custom Pool vs. TBB
 You will notice **Intel TBB (Threading Building Blocks)** is included in `CMakeLists.txt`, but I am currently using a **custom Thread Pool implementation**.
@@ -65,17 +69,39 @@ SimGen++/
 
 ## 🛠️ Build & Run Instructions
 
+This project is designed to be highly modular. You can either run the **Full Ecosystem** (using the C# orchestrator and Docker), or build the **Standalone C++ Engine** natively on your machine.
+
 ### Prerequisites
-Ensure you have the following installed before starting:
+**For the Full Pipeline:**
+* **Docker Desktop** (Daemon must be running)
+* **.NET 8 SDK** (To run the C# Orchestrator)
+
+**For the Standalone C++ Engine:**
 * **C++17 Compiler** (GCC, Clang, or MSVC)
 * **CMake 3.10+**
-* **Python 3** (Optional, required for the Web Viewer)
 
-### 1. Build
+*(Optional) For visual output playback:*
+* **Python 3** (To run the GIF generator script)
+
+---
+### Option A: The Full Pipeline (C# -> Docker -> C++)
+This is the recommended way to run the project. The C# Orchestrator will handle JSON configuration and automatically launch the isolated Linux container.
+
+```bash
+# 1. Build the Docker Container
+docker build -t simgen-engine .
+
+# 2. Navigate to the C# Manager directory
+cd SimGenManager
+
+# 3. Run the pipeline (Follow the terminal prompts)
+dotnet run
+```
+### Option B: Standalone C++ Build (Manual)
 Create a build directory and compile the executable.
 
 ```bash
-# Create and enter the build directory
+# 1. Create and enter the build directory
 mkdir build && cd build
 
 # Configure the project with CMake
@@ -83,17 +109,16 @@ cmake ..
 
 # Compile the executable
 make
-```
-### 2. Run
-```bash
+
+# 2. Run
+
 # Usage: ./simgen <SEED>
 # Example: Run with seed 12345 to generate trajectory data
 ./simgen 12345
-```
 
-### 3. Visualize
 
-```bash 
+# 3. Visualize
+
 # Run python script to out a GIF animation
 # as th scripts.py is not in the "build" folder
 python ../scripts/make_gif.py

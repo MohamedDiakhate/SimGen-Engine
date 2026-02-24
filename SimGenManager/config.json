@@ -1,0 +1,6 @@
+{
+  "Width": 400,
+  "Height": 200,
+  "Samples": 100,
+  "OutputFile": "render_output.png"
+}
